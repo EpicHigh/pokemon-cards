@@ -1,6 +1,8 @@
-# Brankas: Pokemon Card
+# Pokemon Card Take-Home Assignment - Vue
 
 ## Getting Started
+
+Pokemon Card Take-Home Assignment is written in [Vue](https://vuejs.org/).
 
 ### Prerequisites
 

@@ -1,7 +1,7 @@
 <template>
   <Navbar @change-type='onChangeType' @change-rarity='onChangeRarity' @enter='onEnter'
           @change-search-by='onChangeSearchBy' />
-  <CardList :search-by='searchBy' :sets='sets' :cards='cards' />
+  <CardList :search-by="'searchBy'" :sets='sets' :cards='cards' />
   <Pagination @next='onNext' @previous='onPrevious' :total-count='pagination.totalCount' :page='pagination.page'
               :page-size='pagination.pageSize' />
 </template>
@@ -38,7 +38,7 @@ export default defineComponent({
         const response = await getCards({ page: 1, pageSize: 20, q })
         const { data, page, pageSize, totalCount } = response.data
         this.pagination = { page, pageSize, totalCount }
-        this.cards = data
+        this.cards = data as Card[]
       } catch (e) {
         alert(e.message)
       }
@@ -49,7 +49,7 @@ export default defineComponent({
         const response = await getSets({ page: 1, pageSize: 20, q })
         const { data, page, pageSize, totalCount } = response.data
         this.pagination = { page, pageSize, totalCount }
-        this.sets = data
+        this.sets = data as string[]
       } catch (e) {
         alert(e.message)
       }
@@ -69,7 +69,7 @@ export default defineComponent({
       return q
     },
     // Fired when press enter
-    async onEnter(value) {
+    async onEnter(value: string) {
       if (this.searchBy === 'card') {
         this.keyword = value
         await this.loadCard(this.query())
@@ -110,12 +110,12 @@ export default defineComponent({
         const response = await getSets({ page: this.pagination.page + 1, pageSize: 20, q: this.query() })
         const { data, page, pageSize, totalCount } = response.data
         this.pagination = { page, pageSize, totalCount }
-        this.sets = data
+        this.sets = data as unknown as Set[]
       } else {
         const response = await getCards({ page: this.pagination.page + 1, pageSize: 20, q: this.query() })
         const { data, page, pageSize, totalCount } = response.data
         this.pagination = { page, pageSize, totalCount }
-        this.cards = data
+        this.cards = data as Card[]
 
       }
     },
@@ -125,12 +125,12 @@ export default defineComponent({
         const response = await getSets({ page: this.pagination.page - 1, pageSize: 20, q: this.query() })
         const { data, page, pageSize, totalCount } = response.data
         this.pagination = { page, pageSize, totalCount }
-        this.sets = data
+        this.sets = data as unknown as Set[]
       } else {
         const response = await getCards({ page: this.pagination.page - 1, pageSize: 20, q: this.query() })
         const { data, page, pageSize, totalCount } = response.data
         this.pagination = { page, pageSize, totalCount }
-        this.cards = data
+        this.cards = data as Card[]
       }
     }
   },

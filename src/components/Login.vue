@@ -36,6 +36,7 @@
 
 <script lang='ts'>
 import { defineComponent } from 'vue'
+import router from '../routers'
 
 export default defineComponent({
   name: 'Login',
@@ -50,6 +51,7 @@ export default defineComponent({
     onSubmit() {
       localStorage.setItem('email', this.email)
       localStorage.setItem('password', this.password)
+      router.push('/cards')
     }
   }
 })
