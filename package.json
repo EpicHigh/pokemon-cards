@@ -8,12 +8,12 @@
   },
   "dependencies": {
     "axios": "0.26.1",
-    "vue": "3.2.31",
+    "vue": "3.2.32",
     "vue-router": "4.0.14"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "2.3.1",
-    "@vue/compiler-sfc": "3.2.31",
+    "@vue/compiler-sfc": "3.2.32",
     "autoprefixer": "10.4.4",
     "postcss": "8.4.12",
     "prettier": "2.6.2",
