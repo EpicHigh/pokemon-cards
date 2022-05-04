@@ -12,7 +12,7 @@
     "vue-router": "4.0.14"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "2.3.1",
+    "@vitejs/plugin-vue": "2.3.2",
     "@vue/compiler-sfc": "3.2.33",
     "autoprefixer": "10.4.4",
     "postcss": "8.4.12",
